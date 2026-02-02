@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enter Today’s Mock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="body-dark">
+
+<nav class="topbar">
+  <div class="topbar-left">
+    <a class="back-link" href="index.html">⬅ Dashboard</a>
+  </div>
+  <div class="topbar-center">
+    <h1>Enter Today’s Mock</h1>
+  <p class="subtitle">Quickly add today&#39;s performance — saved to Firebase</p>
+  </div>
+  <div class="topbar-right"></div>
+</nav>
+
+<main class="wrap">
+  <section class="card form-card">
+    <div class="top-inputs">
+      <div class="field">
+        <label for="date">Date</label>
+        <input type="date" id="date" aria-label="date of test" title="Enter test date" />
+        <div class="helper-text">Choose the date of the mock test (defaults to today)</div>
+      </div>
+
+      <div class="field">
+        <label for="score">Total Score</label>
+        <input type="number" id="score" aria-label="total score" placeholder="e.g. 142" title="Enter total score out of full marks" />
+        <div class="helper-text">Enter the total score you want recorded for the day</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subjects-container" class="card subjects-card">
+    <!-- Subjects & chapters will be injected here -->
+  </section>
+
+  <div class="actions sticky-mobile">
+    <button class="btn-primary save-btn" onclick="saveDay()">💾 Save Today</button>
+  </div>
+
+</main>
+
+<!-- Toast container for user feedback (stacked toasts will appear here) -->
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

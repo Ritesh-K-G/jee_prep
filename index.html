@@ -1,17 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Firebase + GitHub Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JEE Prep Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="body-dark">
 
-<h1>Firebase JSON Test</h1>
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>📊 JEE Preparation Dashboard</h1>
+    </div>
+    <div class="topbar-right">
+      <a href="entry.html" class="btn-primary">➕ Add Today’s Data</a>
+    </div>
+  </header>
 
-<button onclick="writeData()">Write Data</button>
-<button onclick="readData()">Read Data</button>
+  <section class="card">
+    <h2>Overall Score Trend</h2>
+    <canvas id="scoreChart"></canvas>
+  </section>
 
-<pre id="output"></pre>
+  <section class="card">
+    <h2>Subject-wise Accuracy</h2>
+    <div id="subjectStats"></div>
+  </section>
 
-<script src="script.js"></script>
+  <section class="card">
+    <h2>Weak Chapters</h2>
+    <ul id="weakChapters"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Chapter-wise Accuracy (per subject)</h2>
+    <div id="chapterCharts" class="chapter-charts"></div>
+  </section>
+
+  <section class="card">
+    <h2>Accuracy Trend — Chapter</h2>
+    <div class="trend-controls">
+      <label for="chapterSelect">Choose chapter:</label>
+      <select id="chapterSelect"></select>
+    </div>
+    <div style="height:320px;">
+      <canvas id="chapterTrendChart"></canvas>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Last 7 days vs Overall (by subject)</h2>
+    <div style="height:340px;">
+      <canvas id="compareChart"></canvas>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+  <!-- Modal for large chapter trend charts -->
+  <div id="chartModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" tabindex="-1"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Chapter Trend</h3>
+      <div style="height:420px;">
+        <canvas id="modalChartCanvas"></canvas>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
